@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useChat } from "@ai-sdk/react";
+import remarkGfm from "remark-gfm";
+import ReactMarkdown from "react-markdown";
 
 export default function ChatPage() {
   const [input, setInput] = useState("");
@@ -29,9 +31,11 @@ export default function ChatPage() {
                 return (
                   <div
                     key={`${message.id}-${index}`}
-                    className="whitespace-pre-wrap"
+                    className="prose dark:prose-invert prose-zinc w-full max-w-none overflow-x-auto"
                   >
-                    {part.text}
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {part.text}
+                    </ReactMarkdown>
                   </div>
                 );
               default:
