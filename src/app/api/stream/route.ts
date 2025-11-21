@@ -1,12 +1,12 @@
 import { streamText } from "ai";
-import { openai } from "@ai-sdk/openai";
+import { groq } from "@ai-sdk/groq";
 
 export async function POST(req: Request) {
   try {
     const { prompt } = await req.json();
 
     const result = streamText({
-      model: openai("gpt-5-nano"),
+      model: groq("openai/gpt-oss-20b"),
       prompt,
     });
 

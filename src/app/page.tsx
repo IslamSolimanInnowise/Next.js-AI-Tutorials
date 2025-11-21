@@ -1,16 +1,17 @@
 import Link from "next/link";
 
 const navigationLinks = [
-  { name: "1- Completion (Generate Text)", href: "/ui/completion" },
+  { name: "Basic Completion (Generate Text)", href: "/ui/completion" },
+  { name: "Basic Completion (Stream Text)", href: "/ui/stream" },
 ];
 
 const Home = () => {
   return (
-    <main className="p-4 bg-blue-100 min-h-screen">
-      <h1 className="bg-blue-200 p-2 text-center font-black text-3xl h-15  rounded-2xl shadow-md">
+    <main className="p-4 bg-gray-50 min-h-screen">
+      <h1 className="bg-blue-200 p-2 text-center font-black text-3xl h-15 rounded-2xl shadow-md">
         Choose Your Route
       </h1>
-      <div className="mt-4 flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center min-h-[calc(100vh-92px)] items-center">
         {navigationLinks.map((link) => (
           <Link
             key={link.name}

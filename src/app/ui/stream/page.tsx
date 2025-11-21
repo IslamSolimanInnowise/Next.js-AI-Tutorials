@@ -1,6 +1,8 @@
 "use client";
 
 import { useCompletion } from "@ai-sdk/react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function CompletionStreamPage() {
   const {
@@ -21,7 +23,13 @@ export default function CompletionStreamPage() {
       {error && <div className="text-red-500 mb-4">{error.message}</div>}
       {isLoading && !completion && <div>Loading...</div>}
 
-      {completion && <div className="whitespace-pre-wrap">{completion}</div>}
+      {completion && (
+        <div className="prose dark:prose-invert prose-zinc w-full max-w-none overflow-x-auto">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {completion}
+          </ReactMarkdown>
+        </div>
+      )}
       <form
         onSubmit={(e) => {
           e.preventDefault();
