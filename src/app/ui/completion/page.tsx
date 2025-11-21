@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function CompletionPage() {
   const [prompt, setPrompt] = useState(""); // user input
@@ -46,7 +48,11 @@ export default function CompletionPage() {
       {isLoading ? (
         <div>Loading...</div>
       ) : completion ? (
-        <div className="whitespace-pre-wrap">{completion}</div>
+        <div className="prose dark:prose-invert prose-zinc w-full max-w-none overflow-x-auto">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {completion}
+          </ReactMarkdown>
+        </div>
       ) : null}
       <form
         onSubmit={complete}
