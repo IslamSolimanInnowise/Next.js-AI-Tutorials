@@ -21,7 +21,7 @@ export default function StructuredArrayPage() {
     <div className="flex flex-col w-full max-w-2xl pt-12 pb-24 mx-auto">
       {error && <div className="text-red-500 mb-4 px-4">{error.message}</div>}
 
-      <div className="space-y-8">
+      <div className="space-y-8 p-4">
         {object?.map((pokemon) => (
           <div
             key={pokemon?.name}

@@ -1,5 +1,5 @@
 import { streamObject } from "ai";
-import { openai } from "@ai-sdk/openai";
+import { groq } from "@ai-sdk/groq";
 import { pokemonSchema } from "./schema";
 
 export async function POST(req: Request) {
@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     const { type } = await req.json();
 
     const result = streamObject({
-      model: openai("gpt-5-nano"),
+      model: groq("openai/gpt-oss-120b"),
       output: "array",
       schema: pokemonSchema,
       prompt: `Generate a list of 5 ${type} type pokemon`,

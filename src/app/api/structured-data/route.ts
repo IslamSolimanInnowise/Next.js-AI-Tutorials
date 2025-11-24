@@ -1,5 +1,5 @@
 import { streamObject } from "ai";
-import { openai } from "@ai-sdk/openai";
+import { groq } from "@ai-sdk/groq";
 import { recipeSchema } from "./schema";
 
 export async function POST(req: Request) {
@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     console.log({ dish });
 
     const result = streamObject({
-      model: openai("gpt-5-nano"),
+      model: groq("openai/gpt-oss-120b"),
       schema: recipeSchema,
       prompt: `Generate a recipe for ${dish}`,
     });

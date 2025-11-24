@@ -4,6 +4,10 @@ const navigationLinks = [
   { name: "Basic Completion (Generate Text)", href: "/ui/completion" },
   { name: "Basic Completion (Stream Text)", href: "/ui/stream" },
   { name: "Chatbot (With Memory)", href: "/ui/chat" },
+  { name: "Stream Structured Data", href: "/ui/structured-data" },
+  { name: "Stream Arrays", href: "/ui/structured-array" },
+  { name: "Generate Enums", href: "/ui/structured-enum" },
+  { name: "Multi-Modal Chat", href: "/ui/multi-modal-chat" },
 ];
 
 const Home = () => {
@@ -18,7 +22,7 @@ const Home = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="px-6 py-3 m-2 bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-semibold rounded-2xl shadow-lg transform transition duration-200 ease-out hover:-translate-y-1 hover:scale-105 hover:shadow-2xl active:translate-y-1 active:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-200 w-40 h-40 flex items-center justify-center text-center"
+              className="px-6 py-3 m-2 bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-semibold shadow-lg transform transition duration-200 ease-out hover:-translate-y-1 hover:scale-105 hover:shadow-2xl active:translate-y-1 active:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-200 w-40 h-40 flex items-center justify-center text-center rounded-full"
               aria-label={link.name}
             >
               {link.name}

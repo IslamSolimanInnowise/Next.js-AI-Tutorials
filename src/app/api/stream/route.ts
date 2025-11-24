@@ -6,7 +6,8 @@ export async function POST(req: Request) {
     const { prompt } = await req.json();
 
     const result = streamText({
-      model: groq("openai/gpt-oss-20b"),
+      // model: groq("openai/gpt-oss-20b"),
+      model: groq("qwen/qwen3-32b"),
       prompt,
     });
 

@@ -1,12 +1,12 @@
 import { generateObject } from "ai";
-import { openai } from "@ai-sdk/openai";
+import { groq } from "@ai-sdk/groq";
 
 export async function POST(req: Request) {
   try {
     const { text } = await req.json();
 
     const result = await generateObject({
-      model: openai("gpt-5-mini"), // gpt-5-mini supports enum better
+      model: groq("openai/gpt-oss-120b"),
       output: "enum",
       enum: ["positive", "negative", "neutral"],
       prompt: `Classify the sentiment in this text: "${text}"`,
